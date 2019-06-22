@@ -1,13 +1,16 @@
-echo "Type the location of a file to check: "
-read file
+#echo "Type the location of a FILE to check: "
+#read FILE
 
-[ -f $file ] && echo "This is a file"
-[ -d $file ] && echo "This is a directory"
+#Takes filename as argument
+FILE=$0
 
-if [ -d $file ]
+[ -f $FILE ] && echo "This is a file"
+[ -d $FILE ] && echo "This is a directory"
+
+if [ -d $FILE ]
 then
     echo ""
     echo "Contents of Directory: "
     echo ""
-    ls $file
+    ls $FILE
 fi
