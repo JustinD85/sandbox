@@ -3,10 +3,13 @@
 
 (defn handler [request-map]
   {:status 200
-           :headers {"Content-Type" "text/html"}
-           :body (str "<html><body> your IP is: "
-                      (:remote-addr request-map)
-                      "</body></html>")})
+   :headers {"Content-Type" "text/html"}
+   :body (str "<html><body> your IP is: "
+              (:remote-addr request-map)
+              "<div> request has: "
+              request-map
+              "<div/></body></html>")})
+
 (defn -main []
   (jetty/run-jetty
    handler
