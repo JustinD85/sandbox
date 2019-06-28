@@ -8,7 +8,7 @@ for FILE in $@
 do
     [ -f $FILE ] && echo "This is a file"
     [ -d $FILE ] && echo "This is a directory"
- 
+
     if [ -d $FILE ]
     then
         echo ""
@@ -17,3 +17,10 @@ do
         ls $FILE
     fi
 done
+
+if [ -f $0 ]
+then
+    exit 0
+else
+    exit 1
+fi
