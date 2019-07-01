@@ -6,12 +6,19 @@
   (r/response
    (str "<html><body> your IP is: "
         (:remote-addr request-map)
-        "<div> reqeust-map contains: "
+        "<code>request-map contains: "
         request-map
-        "<div/></body></html>")))
+        "</code></body></html>")))
+
+(defn add-hello-at-end [handler]
+  (fn [request]
+    (-> request
+        handler
+        (assoc :body (str (:body handler) "Hello!!!")))))
 
 (defn -main []
   (jetty/run-jetty
-   handler
+   (-> handler
+       add-hello-at-end)
    {:port 3000
     :join? false}))
