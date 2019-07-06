@@ -9,4 +9,11 @@
   (selmer/render "Hi, {{name}}" {:name name}))
 
 (def hello-from-template
-  (selmer/render-file "hello.html" {:name "Joe"}))
+  (selmer/render-file "hello.html" {:name "Joe" :items (range 13)}))
+
+;;Changes location to look for html files
+(defn hello-from-another-template []
+  ;;look into setting relative path instead
+  ;; or, setting project path so I don't have to give absolute path
+  (selmer/set-resource-path! "home/falsemotive/Projects/Clojure/playground/html-templating/layouts/html/")
+  (selmer/render-file "hello.html" {:name "Joe" :items (range 13)}))
