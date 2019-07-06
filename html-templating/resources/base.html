@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <title>{% block title %}My amazing site{% endblock %}</title>title>
+  </head>
+  <body>
+    <div id="content">
+      {% block content %} default content (to be overwritten){% endblock %}
+    </div>
+  </body>
+</html>

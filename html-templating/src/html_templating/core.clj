@@ -42,3 +42,20 @@
                {:files ['f1 'f2 'f3]});;this is a files example
 )
 
+;; TAGS EXAMPLES
+;; Template Tags (blocks)
+;; where I put clojure code, can use filters here..etc
+;; syntax: {{variable}} || {% code %} filler content {% endcode %}
+;; BEWARE CACHING DURING DEVELOPMENT!!, turn off with: (selmer/parser/cache-on!/off!)
+
+;;make my own tag
+(selmer/add-tag!
+ :upcase
+ (fn [args context-map content]
+   (.toUpperCase (get-in content [:upcase :content])))
+ :endupcase)
+
+;;start and end of the block tag are the keys defined here. the fn is given a content-map that is keyed
+;; according to the name of the block tag
+(selmer/render
+ "{% upcase} I pity the {{foo}}, mhm!" {:foo "pErSoN"})

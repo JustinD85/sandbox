@@ -12,5 +12,15 @@
       <li> {{item}}</li>
       {%endfor%}
     </ul>
+    <!-- Allows to dynamically adjust content -->
+    {% extends "base.html" %}
+    {% block content %}
+    <!-- show how to render parent content also -->
+    {{block.super}}
+    <!-- end -->
+    <h2>Hello, {{name}}!</h2>
+    <!-- shows on page -->
+    {% include "register.html" %}
+    {% endblock %}
   </body>
 </html>
