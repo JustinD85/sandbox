@@ -32,3 +32,8 @@ for(greeting <- greetings) println(greeting)
  of println("This is cool"). Neat to know indeed.
  */ 
 
+// QUICK NOTE on APPLY, I use partials in Clojure this way(kinda)
+// used to partially compose functions(imho)
+// Ex. def f(x: Int) = (y: Int) => x + y
+// val a = f(2); val b = a(3)
+// Proof: f(2)(3) == f(2).apply(3) && f(2).apply(3) == b
