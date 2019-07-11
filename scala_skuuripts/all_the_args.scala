@@ -1,5 +1,5 @@
 def printArguments(arguments: Array[String]): Unit = {
-  if(arguments.length != 0){
+  if(arguments.nonEmpty){
     println(arguments(0))
     printArguments(arguments.tail)
   }
