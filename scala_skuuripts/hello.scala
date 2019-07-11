@@ -1,1 +1,1 @@
-println("Heyo from a Scala script")
+println("Heyo, " + args(0) + " from a Scala script")
