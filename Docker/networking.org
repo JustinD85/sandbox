@@ -1,0 +1,5 @@
+* Docker Network Defaults
+	- Each container is connected to a private network(bridged connection)
+	- Each of these routes throught NAT firewall on host machine IP
+	- Each can communiate to another with the VPN
+	- Each can be associated to multiple or no networks
