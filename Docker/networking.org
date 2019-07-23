@@ -15,3 +15,13 @@
 		- attaches an existing network to a container
 	-	~-docker network disconnect~
 		- detaches an exisiting network from a container
+
+
+*** Containers talking to each other on the same VPN
+	- Create a new VPN
+		- ~docker network create my_app_network~
+		- add new containers to the ~my_app_network~
+	- Ping between containers
+		- ~docker container run -d --name my_nginx1 -network my_app_network nginx:alpine~
+		- ~docker container run -d --name my_nginx2 -network my_app_network nginx:alpine~
+		- ~docker container exec -it my_nginx1 ping my_nginx2~
