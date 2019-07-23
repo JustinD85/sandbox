@@ -3,3 +3,15 @@
 	- Each of these routes throught NAT firewall on host machine IP
 	- Each can communiate to another with the VPN
 	- Each can be associated to multiple or no networks
+
+*** Usefuls Commands
+	- ~-docker network ls~
+		- shows networks
+	- ~-docker network inspect~
+		- inspects networks(additional details)
+	- ~-docker network create --driver~
+		- creates a network
+	-	~-docker network connect~
+		- attaches an existing network to a container
+	-	~-docker network disconnect~
+		- detaches an exisiting network from a container
