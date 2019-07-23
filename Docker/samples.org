@@ -15,3 +15,9 @@
 ~docker logs | grep generated~
 	- return a value from one of the servers
 ~curl localhost:8080~
+	- attach to a running containers bash
+~docker container exec -it nginx~
+	- start a new container and attach to bash in same command
+~docker container run -it ubuntu~
+	- download the alpine distro of linux
+~docker image pull alpine~
