@@ -9,7 +9,7 @@
 ** Registry
 	- Registry is to images as Github is to repos
 		- hub.docker.com
-** -publish internal:external
+** -publish internal:external || port_exposed_on_host:port_exposed_container
 	- routes traffic from external to a specified internal port
 ** -detach
 	- allows for background tasks
