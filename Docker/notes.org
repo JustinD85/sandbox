@@ -1,0 +1,11 @@
+* Jargon
+** Image
+*** The application I want to run
+** Container
+*** An instance of an image
+**** (Thus, many containers can run one image)
+** NGINX
+*** A simple web server
+** Registry
+*** Registry is to images as Github is to repos
+**** hub.docker.com
