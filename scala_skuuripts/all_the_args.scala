@@ -15,6 +15,6 @@ printArguments(args)
 // yet another way: being concise
 // args.foreach(println)
 // In the above, since the function literal ( arg => statement ) took only one arguement and
-// excecuted one statement I can write it with just the statement (println) instead
+// excecuted one statement I can write it with just the statement `println` instead
 
 
