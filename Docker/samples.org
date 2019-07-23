@@ -7,7 +7,7 @@
 
 ~docker container run -d -p 3306:3306 --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes~
 
-~docker container run -d -p 8080:80 --name httpd ~
+~docker container run -d -p 8080:80 --name httpd~
 
 	- list all processes
 ~docker container ls~
