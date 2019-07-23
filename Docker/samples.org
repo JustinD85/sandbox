@@ -12,7 +12,6 @@
 	- list all processes
 ~docker container ls~
 	- check logs for generated password
-~docker logs~
 ~docker logs | grep generated~
 	- return a value from one of the servers
 ~curl localhost:8080~
