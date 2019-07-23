@@ -1,8 +1,10 @@
 * Manage Multiple Containers
 	- Helpful: --help
 
-	-*Startup 3 different internet servers, route traffic from port external port, to internal port, send each process to the 
-		background, give each process a name, pass an environment variable to 1 or many processes
-~ docker run --name nginx -p 8000:80 -d nginx ~
-~ docker run --name mysql -p 3306:3306 -d mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes ~
-~ docker run --name httpd -p 8080:80 -d httpd ~
+	- *Startup 3 different internet servers, route traffic from port external port, to internal port, send each process to the 
+		background, give each process a name, pass an environment variable to 1 or many processes*
+~docker run --name nginx -p 8000:80 -d nginx~
+
+~docker run --name mysql -p 3306:3306 -d mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes~
+
+~docker run --name httpd -p 8080:80 -d httpd~
