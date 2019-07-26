@@ -23,6 +23,7 @@
     (div :.ui.top.attached.segment
       (h3 :.ui.header
         "Welcome to Fulcro!")
+      ;; TODO add this to the docs at git@github.com:fulcrologic/fulcro/tree/develop/docs
       (p
         "This is full-stack demo content that shows off some of the power of Pathom when used with Fulcro.  The
         'add user' button will randomly generate a user's id/name, and transact it with the server via a mutation join
