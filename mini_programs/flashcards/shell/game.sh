@@ -16,8 +16,6 @@ read_question(){
   question=$1
   answer=$2
   category=$3
-  # read line 
-  # present question to user
     printf "What is this in english? $question\n:> " && read user_response
   [ resultset[$category] ] || resultset[$category]=0 
   [ $user_response != $answer ] && resultset[$category]=$(("${resultset[$category]}"+1)) &&
@@ -33,10 +31,6 @@ do
   IFS=OLDIFS #returns old value to IFS
 done
 
-# increase count of question for category
-# handle branch right/wrong
-  #right -> nothing
-  #wrong -> increment wrong counter with -A resultset[$count]=(increment count)
-# once all questions are answered tally score
+ # once all questions are answered tally score
  #present result set
 
