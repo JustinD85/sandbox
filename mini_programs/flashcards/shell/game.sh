@@ -9,44 +9,29 @@
 #    answer : \t $answer\n"
 #done < $1
 
-declare -A resultset
-dataset=`cat data.csv`
+declare -A resultset #associative array, ver ver fancy
+dataset=`cat data.csv` #some default data read from current dir
 
 read_question(){
   question=$1
   answer=$2
   category=$3
+  # read line 
+  # present question to user
     printf "What is this in english? $question\n:> " && read user_response
   [ resultset[$category] ] || resultset[$category]=0 
-  [ $user_response != $answer ] && resultset[$category]=$(("${resultset[$category]}"+1))
-
-printf "\n\n"
+  [ $user_response != $answer ] && resultset[$category]=$(("${resultset[$category]}"+1)) &&
+    printf "Nope!\n I have increased your wrong count by 1."
+  printf "\n\n"
 }
 
-# read line 
-while : 
-do 
-  for line in $dataset 
-  do
-    OLDIFS=$IFS
-    IFS=","
-    read_question $line
-    IFS=OLDIFS
-  done
-  break
+for line in $dataset 
+do
+  OLDIFS=$IFS #caching old value of the internal field separator
+  IFS="," #redefining the internal field separator temporarily
+  read_question $line #gives the whole comma separated line
+  IFS=OLDIFS #returns old value to IFS
 done
-# present question to user
-#printf "What is this meaning in English :> \n"
-#[ resultset[$category] ] || resultset[$category]=0
-#read something
-#printf "$category :> ${resultset[$category]}\n"
-#resultset[$category]=$(("${resultset[$category]}"+1))
-#done < $1
-#
-#for key in resultset 
-#do 
-#  echo "${resultset[$key]}"
-#done
 
 # increase count of question for category
 # handle branch right/wrong
