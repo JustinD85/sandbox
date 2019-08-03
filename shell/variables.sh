@@ -23,6 +23,23 @@ while :
        printf " \$# \t\t lists the number of parameters passed\n"
        printf " \$1..9 \t\t returns the corresponding parameter in position 1-9\n"
        printf " \$@ \t\t returns all parameters passed\n"
+       printf " shift \t\t shifts parameters to the left, leftmost is derefenced\n"
+       printf " \$? \t\t contains exit value of last command ran 0=no-err 1=err\n"
+       printf " \$\$ \t\t contains the PID of the currently running shell\n"
+       printf " \$! \t\t contains the PID of the last ran background process\n"
+       ;;
+     shift)
+       echo "The value of parameters have been shifted!" && shift 
+       echo "Check the values of \$1-\$9, \$# and \$@"
+       ;;
+     \$\$)
+       echo "The PID of the current shell is $$"
+       ;;
+     \$\!)
+       echo "The PID of the last ran background process is $!"
+       ;;
+     \$\?)
+       echo "The exit status of the last ran command was $?"
        ;;
      \$0)
        echo "The program that invoked me was $0"
