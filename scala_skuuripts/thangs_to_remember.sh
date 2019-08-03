@@ -9,7 +9,7 @@ echo "Give me a term to search for:> "
 #Start of search
 while :
 do
-  read SEARCH_TERM
+  printf ":=> " && read SEARCH_TERM
   FOUND_TERM=false 
 
   case $SEARCH_TERM in 
@@ -25,8 +25,7 @@ do
       ;;
     --help)
       echo "Command \t Outcome \n\n
-  List \t\t Definition \n
-  Nil \n
+  list \t\t Definition \n
   tuple \n 
   exit \t\t Exits program"
       ;;
