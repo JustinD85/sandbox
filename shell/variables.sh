@@ -1,7 +1,7 @@
 #some global variables are available to give context for 
 # the environment in which a program is ran
 
-# So: $0-9 and $# are reserved
+# So: $0-9 and $# and $@ are reserved
 
 printf "\t\t***Reserved variables***\n type --help for list of cmds\n"
 
