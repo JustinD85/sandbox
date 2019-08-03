@@ -1,3 +1,4 @@
+#!/bin/bash
 #some global variables are available to give context for 
 # the environment in which a program is ran
 
