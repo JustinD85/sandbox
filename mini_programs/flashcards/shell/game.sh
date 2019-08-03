@@ -1,11 +1,11 @@
 #!/bin/bash
 # flash card game
 G_IFS=$IFS 
-IFS="\$"
+IFS="\$" #-E option on cat puts $ to indicate newline, set IFS to match
 
 declare -A resultset #associative array, ver ver fancy
-dataset=`cat -E data.csv` #some default data read from current dir
-#echo $dataset | grep -c "hospitality" 
+dataset=`cat -E data.csv` #some default data read from current dir, add $ for newline
+
 read_question(){
   question=$1
   answer=$2
@@ -13,11 +13,11 @@ read_question(){
     printf "What is this in english? $question\n:> " && read user_response
   [ resultset[$category] ] || resultset[$category]=0 
   [ ${user_response:=b} != $answer ] && resultset[$category]=$(("${resultset[$category]}"+1)) &&
-    printf "Nope!\n I have increased your wrong count by 1."
+    printf "BooBoo!\n Wrong count by 1."
   printf "\n\n"
 }
 
-for line in $dataset 
+for line in $dataset #separator is $ still
 do
   OLDIFS=$IFS #caching old value of the internal field separator
   IFS="," #redefining the internal field separator temporarily
@@ -25,8 +25,7 @@ do
   IFS=OLDIFS #returns old value to IFS
 done
 
- #reset IFS
- IFS=G_IFS
+ IFS=G_IFS #resets internal field separator value to og value
 
  for key in "${!resultset[@]}"
  do 
