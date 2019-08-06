@@ -1,0 +1,18 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>WebSprockets</title>
+</head>
+
+<body>
+    <script>
+        const sock = new WebSocket("wss://echo.websocket.org")
+        sock.onopen = () => console.log("connected")
+        setTimeout(() => sock.send("yo"), 1500)
+
+        sock.onmessage = e => console.log(e)
+    </script>
+</body>
+
+</html>
