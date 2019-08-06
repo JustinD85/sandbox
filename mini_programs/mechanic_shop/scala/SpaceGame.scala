@@ -4,5 +4,5 @@
 
 
 object SpaceGame {
-    def main(args: String): Unit = "Awesome SpaceGame!"
+    def main(args: String): Unit = print("Awesome SpaceGame!")
 }
