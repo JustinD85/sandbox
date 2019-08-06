@@ -10,6 +10,6 @@
     }
 
     object Part {
-        def listener():Unit = println("Listening!")
+        def listener():Unit = println("Generic Part is Listening!")
     }
    }
