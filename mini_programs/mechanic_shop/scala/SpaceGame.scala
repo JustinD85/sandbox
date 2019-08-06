@@ -13,4 +13,7 @@ import Parts._
 object SpaceGame extends App {
     println("Awesome SpaceGame!")
     Parts.listener
+    val newPart = new Parts with Engine
+    newPart.start
+    newPart.listener
 }
