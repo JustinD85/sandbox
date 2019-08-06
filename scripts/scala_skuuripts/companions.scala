@@ -17,12 +17,12 @@ object A {
   def nextId(): Int = uniqueId
 }
 
-// val a = new A
-// val b = new A
-// println("a: " + a.currentId())
-// a.changeId()
-// println("a: " + a.currentId())
+ val a = new A
+ val b = new A
+println("a: " + a.currentId())
+a.changeId()
+println("a: " + a.currentId())
 
-// println("b: " + b.currentId())
-// b.changeId()
-// println("b: " + b.currentId())
+ println("b: " + b.currentId())
+ b.changeId()
+ println("b: " + b.currentId())
