@@ -8,12 +8,19 @@
         //advantage you don't have to wait as long
         //shutdown daemon with fsc -shutdown
 
-import Parts._
+import parts._
 
 object SpaceGame extends App {
-    println("Awesome SpaceGame!")
-    Parts.listener
-    val newPart = new Parts with Engine
-    newPart.start
-    newPart.listener
+    Part.listener //equivalent to a Java static method of a class
+
+    val partWithEngine = new Part with Engine
+    partWithEngine.start
+    partWithEngine.listener 
+
+println("\n*****Part without Engine*****\n")
+
+    val partWithoutEngine = new Part
+    partWithoutEngine.start 
+    // partWithoutEngine.listener  //***Doesn't have access to the companion method***
+
 }
