@@ -64,7 +64,6 @@ println("""
   ||This line was no aligned and now is, thanks stripMargin!
   """.stripMargin)
 
-
 Thread.sleep(1000)
 println("""
     |String interpolation can be done with a processed string literal.
@@ -79,7 +78,8 @@ println("""
    |There is a 'f' string formatter as well
    |The syntax is f"some text"
    |To format f"some $weight%.2f"
-   |//some 200.00""")
+   |//some 200.00
+   """)
 
 Thread.sleep(1100)
 def toUp(c: Char): Char = c.toByte.-(32).toChar 
@@ -88,4 +88,14 @@ def toUp(c: Char): Char = c.toByte.-(32).toChar
     |Given: def toUp: Char = (c: Char) => c.toByte.-(32).toChar 
     |Produces a uppercase character given an lowercase character.
     |Ex "hello".map(toUp) //${"hello".map(toUp)} 
-      """)
+    """)
+
+Thread.sleep(1300)
+println(s"""
+    |Using regex:
+    |Create a pattern with '.r'
+    |val birthdayPattern = "13".r
+    |val birthday = "August 13, 1985"
+    |val capture = birthdayPattern.findFirstIn(birthday)
+    |produces: ${ "13".r.findFirstIn("August 13 1985").getOrElse("not found")}
+    """)
