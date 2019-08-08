@@ -111,7 +111,7 @@ TestResults/
 
 ######################
 
-.DS_Store?
+*.DS_Store?
 
 ehthumbs.db
 
