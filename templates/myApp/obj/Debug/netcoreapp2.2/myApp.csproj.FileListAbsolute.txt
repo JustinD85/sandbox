@@ -1,0 +1,11 @@
+/home/madfunctional/playground/templates/myApp/bin/Debug/netcoreapp2.2/myApp.deps.json
+/home/madfunctional/playground/templates/myApp/bin/Debug/netcoreapp2.2/myApp.runtimeconfig.json
+/home/madfunctional/playground/templates/myApp/bin/Debug/netcoreapp2.2/myApp.runtimeconfig.dev.json
+/home/madfunctional/playground/templates/myApp/bin/Debug/netcoreapp2.2/myApp.dll
+/home/madfunctional/playground/templates/myApp/bin/Debug/netcoreapp2.2/myApp.pdb
+/home/madfunctional/playground/templates/myApp/obj/Debug/netcoreapp2.2/myApp.csprojAssemblyReference.cache
+/home/madfunctional/playground/templates/myApp/obj/Debug/netcoreapp2.2/myApp.csproj.CoreCompileInputs.cache
+/home/madfunctional/playground/templates/myApp/obj/Debug/netcoreapp2.2/myApp.AssemblyInfoInputs.cache
+/home/madfunctional/playground/templates/myApp/obj/Debug/netcoreapp2.2/myApp.AssemblyInfo.cs
+/home/madfunctional/playground/templates/myApp/obj/Debug/netcoreapp2.2/myApp.dll
+/home/madfunctional/playground/templates/myApp/obj/Debug/netcoreapp2.2/myApp.pdb
