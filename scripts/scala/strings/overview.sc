@@ -26,7 +26,7 @@ println("""
     | //l 
     | //l 
     | //o
-""")
+    """)
 
 println("""
     |I can treat strings like sequences of chars
@@ -34,3 +34,25 @@ println("""
     """)
 for (c <- "Justin") println(s"\t|${c}")
 
+println("""
+    |To show methods of an object:
+    |"foo".[Tab]
+    |This will display, in a REPL(sbt,scala,etc) methods that can be invoked)
+    |Hitting tab a second will display even MORE completions!
+    """)
+
+println("""
+    |To show methods of StringOps for example:
+    |val s = new scala.collection.immutable.StringOps("s")
+    |s.[Tab]
+    |Viola(sp?)
+    """)
+println(s"""
+    |Cool example of a StringOps method:
+    | "NOSQL".drop(2)
+    | ${"NOSQL".drop(2)} //It drops the head twice
+    """)
+println("""
+    ||To align text use ".stripMargin([<delimiter>])")
+  ||This line was no aligned and now is, thanks stripMargin!
+  """.stripMargin)
