@@ -7,7 +7,7 @@
 
 <body>
     <script>
-        const sock = new WebSocket("ws://localhost:9000/api/v3/socialFeedSocket")
+        const sock = new WebSocket("ws://localhost:9000/api/v1/socialFeedSocket")
         sock.onopen = () => console.log("connected")
         setTimeout(() => sock.send("yo"), 1500)
 
