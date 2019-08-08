@@ -99,3 +99,14 @@ println(s"""
     |val capture = birthdayPattern.findFirstIn(birthday)
     |produces: ${ "13".r.findFirstIn("August 13 1985").getOrElse("not found")}
     """)
+
+Thread.sleep(1000)
+println(s"""
+    |Accessing characters of a string:
+    |Java way: "Justin".charAt(0)
+    |\\J 
+    |Scala way: "Justin"(0)
+    |\\J
+    |Quick Note: In the Scala example 'apply' is being called with '0' as its argument
+    """)
+
