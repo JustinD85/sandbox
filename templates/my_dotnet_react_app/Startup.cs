@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SignalRChat.Hubs;
 
 namespace my_dotnet_react_app
 {
@@ -27,6 +28,9 @@ namespace my_dotnet_react_app
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            // For websockets handling
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +50,10 @@ namespace my_dotnet_react_app
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chat");
+            });
 
             app.UseMvc(routes =>
             {
@@ -63,6 +71,7 @@ namespace my_dotnet_react_app
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+
         }
     }
 }

@@ -13,11 +13,20 @@ class Chat extends Component {
         };
     }
 
+    sendMessage = e => {
+        e.preventDefault();
+        this.state.connection
+            .invoke('SendMessage', this.state.nick, this.state.message)
+            .catch(err => console.error(err));
+
+        this.setState({ message: '' });
+    };
+
     componentDidMount = () => {
         const nick = window.prompt('Your name:', 'Justin');
 
         const connection = new HubConnectionBuilder()
-            .withUrl('http://localhost:5001/api/chat')
+            .withUrl('/chat')
             .configureLogging(LogLevel.Information)
             .build()
 
@@ -27,7 +36,7 @@ class Chat extends Component {
                 .then(() => console.log('Connection started!'))
                 .catch(err => console.log('Error while establishing connection :('));
 
-            this.state.connection.on('sendToAll', (nick, receivedMessage) => {
+            this.state.connection.on('ReceiveMessage', (nick, receivedMessage) => {
                 const text = `${nick}: ${receivedMessage}`;
                 const messages = this.state.messages.concat([text]);
                 this.setState({ messages });
