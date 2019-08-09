@@ -47,7 +47,7 @@ namespace my_dotnet_react_app
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
             app.UseSignalR(routes =>
