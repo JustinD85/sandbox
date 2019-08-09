@@ -7,6 +7,29 @@ using Microsoft.AspNetCore.Mvc;
 namespace my_dotnet_react_app.Controllers
 {
     [Route("api/[controller]")]
+    public class SocketsController : Controller
+    {
+        private static string[] Data = new[]
+        {
+            "this"," ", "is"," ","great"
+        };
+
+        [HttpGet("[action]")]
+        public ReturnData Abc()
+        {
+            return new ReturnData
+            {
+                feelings = Data
+            };
+        }
+
+        public class ReturnData
+        {
+            public string[] feelings { get; set; }
+        }
+    }
+    [Route("api/[controller]")]
+
     public class SampleDataController : Controller
     {
         private static string[] Summaries = new[]
