@@ -15,7 +15,7 @@ namespace survey
             SendMessage("What month were you born in?");
             var birth_month = GetMessage();
 
-            Console.WriteLine("Your name is {0} and you are {1} with a birth month of {2}", name, age, birth_month);
+            SendMessage(String.Format("Your name is {0} and you are {1} with a birth month of {2}", name, age, birth_month));
             if (birth_month == "August" || birth_month == "august")
             {
                 SendMessage("Ayyyeeeee");
