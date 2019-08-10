@@ -15,7 +15,7 @@ namespace survey
             Console.WriteLine("What month were you born in?");
             var birth_month = Console.ReadLine();
 
-            Console.WriteLine("Your name is " + name + " and you are " + " with a birth month of " + birth_month);
+            Console.WriteLine("Your name is {0} and you are {1} with a birth month of {2}",name, age, birth_month);
         }
     }
 }
