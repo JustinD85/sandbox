@@ -1,14 +1,19 @@
 
-class Student
+class Student : Person
 {
-    static public int Count;
-    public string Name;
+
     public string Grade;
-    public string Birthday;
-    public string Address;
-    private string phone;
-    public string Phone
+
+    public Student(string name, string grade, string birthday, string address, string phone)
     {
-        set { phone = value; }
+        Name = name;
+        Grade = grade;
+        Birthday = birthday;
+        Address = address;
+        Phone = phone;
+    }
+    public Student()
+    {
+
     }
 }
