@@ -17,13 +17,9 @@ namespace survey
 
             SendMessage(String.Format("Your name is {0} and you are {1} with a birth month of {2}", name, age, birth_month));
             if (birth_month == "August" || birth_month == "august")
-            {
                 SendMessage("Ayyyeeeee");
-            }
             if (birth_month.ToLower() == "December")
-            {
                 SendMessage("Woot Woot");
-            }
         }
 
         static void SendMessage(string message)
