@@ -18,13 +18,14 @@ namespace SchoolTracker
             shouldAddMore = checkContinue();
             while (shouldAddMore)
             {
-                Student newStudent = new Student();
+                var newStudent = new Student();
 
                 Log("Enter name of student:> ");
                 newStudent.Name = GetMessage();
 
                 Log("Enter grade of student:> ");
-                newStudent.Grade = GetMessage();
+                while (!int.TryParse(GetMessage(), out newStudent.Grade))
+                    Log("Please Enter a number.");
 
                 Log("Enter the address:> ");
                 newStudent.Address = GetMessage();
