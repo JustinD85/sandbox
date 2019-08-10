@@ -14,7 +14,7 @@ class Chat extends Component {
     }
 
     sendMessage = e => {
-        e.preventDefault();
+        e && e.preventDefault();
         this.state.connection
             .invoke('SendMessage', this.state.nick, this.state.message)
             .catch(err => console.error(err));
@@ -51,6 +51,7 @@ class Chat extends Component {
                 <input
                     type="text"
                     value={this.state.message}
+                    onKeyDown={e => e.key === 'Enter' && this.sendMessage()}
                     onChange={e => this.setState({ message: e.target.value })}
                 />
 
