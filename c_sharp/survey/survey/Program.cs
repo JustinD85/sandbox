@@ -6,24 +6,33 @@ namespace survey
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("What is your name?");
-            var name = Console.ReadLine();
+            SendMessage("What is your name?");
+            var name = GetMessage();
 
-            Console.WriteLine("How old are you?");
-            var age = Console.ReadLine();
+            SendMessage("How old are you?");
+            var age = GetMessage();
 
-            Console.WriteLine("What month were you born in?");
-            var birth_month = Console.ReadLine();
+            SendMessage("What month were you born in?");
+            var birth_month = GetMessage();
 
             Console.WriteLine("Your name is {0} and you are {1} with a birth month of {2}", name, age, birth_month);
             if (birth_month == "August" || birth_month == "august")
             {
-                Console.WriteLine("Ayyyeeeee");
+                SendMessage("Ayyyeeeee");
             }
             if (birth_month.ToLower() == "December")
             {
-                Console.WriteLine("Woot Woot");
+                SendMessage("Woot Woot");
             }
+        }
+
+        static void SendMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
+        static string GetMessage()
+        {
+            return Console.ReadLine();
         }
     }
 }
