@@ -6,7 +6,8 @@ namespace hello_world
     {
         static void Main(string[] args)
         {
-            var greeting = "Hello, Justin!";
+            Console.WriteLine("Enter some text to have it echoed to you. \n");
+            var greeting = Console.ReadLine();
             Console.WriteLine(greeting);
         }
     }
