@@ -11,22 +11,42 @@ namespace SchoolTracker
             "Enter data as <student_name> and <grade>.");
 
             var shouldContinue = true;
-            var stuNames = new List<string>();
-            var stuGrades = new List<int>();
+
+            var students = new List<Student>();
 
             shouldContinue = checkContinue();
             while (shouldContinue)
             {
+                var name = "";
+                var grade = "";
+                var address = "";
+                var birthday = "";
+                var phone = "";
+
                 log("Enter name of student:> ");
-                stuNames.Add(Console.ReadLine());
+                name = Console.ReadLine();
                 log("Enter grade of student:> ");
-                stuGrades.Add(int.Parse(Console.ReadLine()));
+                grade = Console.ReadLine();
+                log("Enter the address:> ");
+                address = Console.ReadLine();
+                log("Enter the birthday:> ");
+                birthday = Console.ReadLine();
+                log("Enter the phone number");
+                phone = Console.ReadLine();
+
+                students.Add(new Student()
+                {
+                    Name = name,
+                    Grade = grade,
+                    Address = address,
+                    Birthday = birthday,
+                    Phone = phone
+                });
                 shouldContinue = checkContinue();
             }
-
-            for (int i = stuNames.Count - 1; i >= 0; i--)
+            foreach (Student student in students)
             {
-                Console.WriteLine("Name:> {0} , Grade:> {1}", stuNames[i], stuGrades[i]);
+                Console.WriteLine("{0}'s grade is: {1}. Information is as follows:\nAddress: {2}\nBirthday: {3}\nPhone: {4}", student.Name, student.Grade, student.Address, student.Birthday, student.Phone);
             }
         }
 
@@ -39,5 +59,14 @@ namespace SchoolTracker
             Console.WriteLine("Should we continue? `q` for quit, `enter` to continue");
             return Console.ReadLine().ToLower() != "q";
         }
+    }
+
+    class Student
+    {
+        public string Name;
+        public string Grade;
+        public string Birthday;
+        public string Address;
+        public string Phone;
     }
 }
