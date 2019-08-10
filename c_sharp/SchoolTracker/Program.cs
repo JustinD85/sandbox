@@ -11,45 +11,37 @@ namespace SchoolTracker
             Log("Welcome to your new student tracker system." +
             "Enter data as <student_name> and <grade>.");
 
-            var shouldContinue = true;
+            var shouldAddMore = true;
 
             var students = new List<Student>();
 
-            shouldContinue = checkContinue();
-            while (shouldContinue)
+            shouldAddMore = checkContinue();
+            while (shouldAddMore)
             {
-                var name = "";
-                var grade = "";
-                var address = "";
-                var birthday = "";
-                var phone = "";
+                Student newStudent = new Student();
 
                 Log("Enter name of student:> ");
-                name = GetMessage();
-                Log("Enter grade of student:> ");
-                grade = GetMessage();
-                Log("Enter the address:> ");
-                address = GetMessage();
-                Log("Enter the birthday:> ");
-                birthday = GetMessage();
-                Log("Enter the phone number");
-                phone = GetMessage();
+                newStudent.Name = GetMessage();
 
-                students.Add(new Student()
-                {
-                    Name = name,
-                    Grade = grade,
-                    Address = address,
-                    Birthday = birthday,
-                    Phone = phone
-                });
-                Student.Count++;
-                Console.WriteLine(Student.Count);
-                shouldContinue = checkContinue();
+                Log("Enter grade of student:> ");
+                newStudent.Grade = GetMessage();
+
+                Log("Enter the address:> ");
+                newStudent.Address = GetMessage();
+
+                Log("Enter the birthday:> ");
+                newStudent.Birthday = GetMessage();
+
+                Log("Enter the phone number");
+                newStudent.Phone = GetMessage();
+
+                students.Add(newStudent);
+                Log(Person.Count.ToString());
+                shouldAddMore = checkContinue();
             }
             foreach (Student student in students)
             {
-                Console.WriteLine("{0}'s grade is: {1}. Information is as follows:\nAddress: {2}\nBirthday: {3}", student.Name, student.Grade, student.Address, student.Birthday);//, student.Phone);
+                Log(string.Format("{0}'s grade is: {1}. Information is as follows:\nAddress: {2}\nBirthday: {3}", student.Name, student.Grade, student.Address, student.Birthday));
             }
         }
     }
