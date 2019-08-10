@@ -32,7 +32,13 @@ namespace survey
         }
         static string GetMessage()
         {
-            return Console.ReadLine();
+            string response = Console.ReadLine();
+            while (response.Trim() == "")
+            {
+                Console.WriteLine("Please enter valid text.");
+                response = Console.ReadLine();
+            }
+            return response;
         }
     }
 }
