@@ -42,11 +42,13 @@ namespace SchoolTracker
                     Birthday = birthday,
                     Phone = phone
                 });
+                Student.Count++;
+                Console.WriteLine(Student.Count);
                 shouldContinue = checkContinue();
             }
             foreach (Student student in students)
             {
-                Console.WriteLine("{0}'s grade is: {1}. Information is as follows:\nAddress: {2}\nBirthday: {3}\nPhone: {4}", student.Name, student.Grade, student.Address, student.Birthday, student.Phone);
+                Console.WriteLine("{0}'s grade is: {1}. Information is as follows:\nAddress: {2}\nBirthday: {3}", student.Name, student.Grade, student.Address, student.Birthday);//, student.Phone);
             }
         }
 
@@ -63,10 +65,15 @@ namespace SchoolTracker
 
     class Student
     {
+        static public int Count;
         public string Name;
         public string Grade;
         public string Birthday;
         public string Address;
-        public string Phone;
+        private string phone;
+        public string Phone
+        {
+            set { phone = value; }
+        }
     }
 }
