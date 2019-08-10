@@ -16,6 +16,10 @@ namespace survey
             var birth_month = Console.ReadLine();
 
             Console.WriteLine("Your name is {0} and you are {1} with a birth month of {2}",name, age, birth_month);
+            if(birth_month == "August" || birth_month == "august")
+            {
+                Console.WriteLine("Ayyyeeeee");
+            }
         }
     }
 }
