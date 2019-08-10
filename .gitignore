@@ -151,3 +151,4 @@ _[Ss]cripts
 *.dot[Cc]over
 /c_sharp/hello_world/.vs/hello_world/v16/Server/sqlite3
 /c_sharp/survey/.vs/survey/v16/Server/sqlite3
+c_sharp/survey/.vs/survey/DesignTimeBuild/.dtbcache
