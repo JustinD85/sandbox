@@ -10,8 +10,10 @@ namespace SchoolTracker
         static List<Student> students = new List<Student>();
         static void Main(string[] args)
         {
+            System.Console.Clear();
+
             Log("Welcome to your new student tracker system." +
-            "Enter data as <student_name> and <grade>.");
+            "\nEnter data as <student_name> and <grade>.");
 
             var shouldAddMore = true;
 
@@ -19,6 +21,7 @@ namespace SchoolTracker
             while (shouldAddMore)
             {
                 var newStudent = new Student();
+                var newTeacher = new Teacher();
 
                 Log("Enter name of student:> ");
                 newStudent.Name = GetMessage();
@@ -32,8 +35,15 @@ namespace SchoolTracker
                 Log("Enter the birthday:> ");
                 newStudent.Birthday = GetMessage();
 
-                Log("Enter the phone number");
+                Log("Enter the phone number:> ");
                 newStudent.Phone = GetMessage();
+
+                Log("Enter the Teachers Name:> ");
+                newTeacher.Name = GetMessage();
+
+                Log("Enter the subject taught:> ");
+                newTeacher.Subject = GetMessage();
+                newStudent.Teacher = newTeacher;
 
                 Log("What school do you go to? \n0: MIT \n1: Harvard \n2: Hogwarts \n3: Franklin (default)");
                 GetMessageSchool(out newStudent.School);
@@ -47,6 +57,7 @@ namespace SchoolTracker
 
         static void Export()
         {
+            System.Console.Clear();
             foreach (var student in students)
             {
                 switch (student.School)
@@ -64,7 +75,11 @@ namespace SchoolTracker
                         Console.WriteLine("Exporting to Franklin University... ");
                         break;
                 }
-                Log(string.Format("\n\n{0}'s grade is: {1}. Information is as follows:\nAddress: {2}\nBirthday: {3}", student.Name, student.Grade, student.Address, student.Birthday));
+                Log(string.Format("\n\t*** {0} ***", student.Name));
+                Log("##################################");
+                Log(string.Format("\n\tGrade: {0}\n\tAddress: {1}\n\tBirthday: {2}", student.Grade, student.Address, student.Birthday));
+                Log(string.Format("\n\tTeacher: {0}\n\tSubject: {1}\n\t", student.Teacher.Name, student.Teacher.Subject));
+                Log("##################################\n\n");
             }
         }
 
