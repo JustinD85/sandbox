@@ -1,4 +1,5 @@
 using static Util.Console;
+using Banking;
 
 namespace SchoolMembers
 {
@@ -8,6 +9,5 @@ namespace SchoolMembers
         {
             Log("Paying the Principle... ");
         }
-
     }
 }
