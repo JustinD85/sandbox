@@ -21,6 +21,11 @@ namespace Util
             while (!int.TryParse(GetMessage(), out _))
                 Log("Please Enter a number.");
         }
+        static public void GetMessageSchool(out School _)
+        {
+            while (!School.TryParse(GetMessage(), out _))
+                Log("Please Enter a number.");
+        }
 
         static public bool checkContinue()
         {
