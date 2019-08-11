@@ -16,6 +16,11 @@ namespace Util
             }
             return response;
         }
+        static public void GetMessageInt(out int _)
+        {
+            while (!int.TryParse(GetMessage(), out _))
+                Log("Please Enter a number.");
+        }
 
         static public bool checkContinue()
         {

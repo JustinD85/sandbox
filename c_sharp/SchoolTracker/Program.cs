@@ -24,8 +24,7 @@ namespace SchoolTracker
                 newStudent.Name = GetMessage();
 
                 Log("Enter grade of student:> ");
-                while (!int.TryParse(GetMessage(), out newStudent.Grade))
-                    Log("Please Enter a number.");
+                GetMessageInt(out newStudent.Grade);
 
                 Log("Enter the address:> ");
                 newStudent.Address = GetMessage();
