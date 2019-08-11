@@ -5,13 +5,14 @@ namespace SchoolMembers
     {
         public int Grade;
         public School School;
+        public Teacher Teacher;
 
     }
     enum School
     {
-        MIT = 0,
-        Harvard = 1,
-        Hogwarts = 2,
+        MIT,
+        Harvard,
+        Hogwarts,
         Franklin
     }
 }
