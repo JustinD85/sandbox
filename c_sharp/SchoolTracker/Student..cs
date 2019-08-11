@@ -3,9 +3,9 @@ namespace SchoolMembers
 {
     class Student : Person
     {
-        public int Grade;
-        public School School;
-        public Teacher Teacher;
+        public int Grade { get; set; }
+        public School School { get; set; }
+        public Teacher Teacher { get; set; }
 
     }
     enum School

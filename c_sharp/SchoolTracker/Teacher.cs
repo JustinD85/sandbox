@@ -5,7 +5,7 @@ namespace SchoolMembers
 {
     class Teacher : Person, IPayee
     {
-        public string Subject;
+        public string Subject { get; set; }
         public void Pay()
         {
             Log("Paying Teacher... ");

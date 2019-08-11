@@ -28,7 +28,8 @@ namespace Banking
             foreach (var payee in payees)
             {
                 payee.Pay();
-                Post();
+                if (Post != null)
+                    Post();
             }
         }
 
