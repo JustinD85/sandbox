@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System;
+using System.Linq;
 
 namespace threads
 {
@@ -14,6 +15,19 @@ namespace threads
             WriteLine("Simulating Hacking the Internet... ");
             Hack(onComplete);
             WriteLine("Waiting for the Hack to Complete... ");
+
+            foreach (var item in Enumerable.Range(0, 50))
+            {
+                var inet = new Thread(new ThreadStart(SendRequest));
+                inet.Start();
+
+                Task.Run(() =>
+                {
+                    WriteLine($"Starting request in thread {inet.ManagedThreadId}");
+                    Thread.Sleep(2000);
+                    WriteLine("request complete");
+                });
+            }
 
             while (hacking)
             { WriteLine("Waiting...:> "); ReadLine(); }
@@ -34,6 +48,11 @@ namespace threads
                WriteLine(data);
                callback();
            });
+        }
+
+        static void SendRequest()
+        {
+            WriteLine($"Thread ID: {Thread.CurrentThread.ManagedThreadId}");
         }
     }
 }
