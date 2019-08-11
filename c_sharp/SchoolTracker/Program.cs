@@ -11,6 +11,8 @@ namespace SchoolTracker
         static void Main(string[] args)
         {
             System.Console.Clear();
+            Payroll payroll = new Payroll();
+            payroll.PayAll();
 
             Log("Welcome to your new student tracker system." +
             "\nEnter data as <student_name> and <grade>.");

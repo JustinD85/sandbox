@@ -2,12 +2,12 @@ using static Util.Console;
 
 namespace SchoolMembers
 {
-    class Teacher : Person, IPayee
+    class Principle : Person, IPayee
     {
-        public string Subject;
         public void Pay()
         {
-            Log("Paying Teacher... ");
+            Log("Paying the Principle... ");
         }
+
     }
 }
