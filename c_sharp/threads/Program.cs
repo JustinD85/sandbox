@@ -23,7 +23,7 @@ namespace threads
 
                 Task.Run(() =>
                 {
-                    WriteLine($"Starting request in thread {inet.ManagedThreadId}");
+                    WriteLine($"Starting request in thread {Thread.CurrentThread.ManagedThreadId}");
                     Thread.Sleep(2000);
                     WriteLine("request complete");
                 });
