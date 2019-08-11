@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using static Util.Console;
+using SchoolMembers;
 
 namespace SchoolTracker
 {
     class Program
     {
-        // enum School
-        // {
-        //     Hogwarts = 0,
-        //     Harvard = 1,
-        //     Franklin = 2,
-        //     MIT = 3
-        // }
         static List<Student> students = new List<Student>();
         static void Main(string[] args)
         {
@@ -40,7 +34,8 @@ namespace SchoolTracker
 
                 Log("Enter the phone number");
                 newStudent.Phone = GetMessage();
-                Log("What school do you go to?");
+
+                Log("What school do you go to? \n0: MIT \n1: Harvard \n2: Hogwarts \n3: Franklin (default)");
                 GetMessageSchool(out newStudent.School);
 
                 students.Add(newStudent);

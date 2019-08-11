@@ -1,3 +1,5 @@
+using SchoolMembers;
+
 namespace Util
 {
     class Console

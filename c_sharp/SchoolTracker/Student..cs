@@ -1,14 +1,17 @@
 
-class Student : Person
+namespace SchoolMembers
 {
-    public int Grade;
-    public School School;
+    class Student : Person
+    {
+        public int Grade;
+        public School School;
 
-}
-enum School
-{
-    Hogwarts = 0,
-    Harvard = 1,
-    Franklin = 2,
-    MIT = 3
+    }
+    enum School
+    {
+        MIT = 0,
+        Harvard = 1,
+        Hogwarts = 2,
+        Franklin
+    }
 }
