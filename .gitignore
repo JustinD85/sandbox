@@ -54,6 +54,8 @@ obj/
 
 TestResults/
 
+*/node_modules
+
 ###################
 
 # Web publish log #
