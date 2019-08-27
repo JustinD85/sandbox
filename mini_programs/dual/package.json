@@ -1,0 +1,21 @@
+{
+  "name": "dual",
+  "version": "1.0.0",
+  "description": "Simple card game. Jquery, Drag n Drop, gulp-less gulp and maybe typescript..mayne",
+  "main": "./dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Justin Duncacn",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jquery": "^3.3.31",
+    "gulp": "^4.0.2",
+    "gulp-less": "^4.0.1",
+    "gulp-typescript": "^5.0.1",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}
