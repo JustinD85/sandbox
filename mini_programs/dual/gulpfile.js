@@ -1,10 +1,24 @@
 const gulp = require('gulp')
-const ts = require('gulp-typescript')
-const tsProject = ts.createProject('tsconfig.json')
+const browserify = require('browserify')
+const source = require('vinyl-source-stream')
+const tsify = require('tsify')
+const paths = {
+    pages: ['src/*.html']
+};
 
-gulp.task('default', () => (
-    tsProject.src()
-        .pipe(tsProject())
-        .js
-        .pipe(gulp.dest('dist'))
-))
+gulp.task('copy-html', () => (
+    gulp.src(paths.pages)
+        .pipe(gulp.dest('dist'))))
+
+gulp.task('default', gulp.series(gulp.parallel('copy-html'), () => (
+    browserify({
+        basedir: '.',
+        debug: true,
+        entries: ['src/main.ts'],
+        cache: {},
+        packageCache: {}
+    })
+        .plugin(tsify)
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(gulp.dest('dist')))))
