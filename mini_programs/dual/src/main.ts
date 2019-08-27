@@ -6,4 +6,4 @@ const HelloApp = (divName: string, name: string) => {
     element.innerText = hello(name);
 }
 
-HelloApp('greeting', "Justin Duncan");
+HelloApp('greeting', "Justin");
