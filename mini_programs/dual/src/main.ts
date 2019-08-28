@@ -1,9 +1,9 @@
-import { hello } from './greet'
-
+import Person from './person'
 
 const HelloApp = (divName: string, name: string) => {
     const element = document.getElementById(divName);
-    element.innerText = hello(name);
+    const joe = Person("Joe")
+    element.innerText = `${joe.name}`
 }
 
-HelloApp('greeting', "Justin");
+HelloApp('app', "Bob");

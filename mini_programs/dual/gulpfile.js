@@ -17,7 +17,6 @@ const watchedBrowserify = watchify(browserify({
     packageCache: {}
 }).plugin(tsify))
 
-
 const packing = () => watchedBrowserify
     .transform('babelify', {
         presets: ['es2015'],
