@@ -1,11 +1,20 @@
 {
     "compilerOptions": {
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "outDir": "./dist",
         "allowJs": true,
-        "target": "es2015"
+        "target": "es5",
+        "module": "commonjs",
+        "removeComments": true,
+        "sourceMap": true,
+        "jsx": "react",
+        "jsxFactory": "kuru"
     },
     "include": [
-        "./src/**/*"
+        "./src/**/*.ts",
+        "./src/*.ts",
+        "src/main.tsx",
+        "src/person.tsx",
+        "src/greet.tsx"
     ]
 }
