@@ -1,13 +1,12 @@
 const gulp = require('gulp')
 const browserify = require('browserify')//bundles into one Js file
 const vinylSource = require('vinyl-source-stream')// converts file output of browserify to something gulp understand(vinyl)
-const buffer = require('vinyl-buffer')//convert babel output to gulp readable format
+const buffer = require('vinyl-buffer')//convert stream to buffer 
 const sourcemaps = require('gulp-sourcemaps')
 const paths = { pages: ['src/*.html'] };
-const watchify = require('watchify')//keeps gulp running, recompliles on file change
 const uglify = require('gulp-uglify')//minify code
+const watchify = require('watchify')//keeps gulp running, recompliles on file change
 const fancyLog = require('fancy-log')
-
 
 const _browserify = browserify({
     basedir: '.',
