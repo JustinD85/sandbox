@@ -7,6 +7,7 @@ const paths = { pages: ['src/*.html'] };
 const uglify = require('gulp-uglify')//minify code
 const watchify = require('watchify')//keeps gulp running, recompliles on file change
 const fancyLog = require('fancy-log')
+const babel = require('gulp-babel')
 
 const _browserify = browserify({
     basedir: '.',
@@ -21,6 +22,9 @@ const packing = () => _browserify
     .pipe(vinylSource('bundle.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(babel({
+        presets: ['@babel/env']
+    }))
     .pipe(uglify())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('dist'))
