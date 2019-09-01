@@ -8,10 +8,6 @@ const paths = { pages: ['src/*.html'] };
 const uglify = require('gulp-uglify')//minify code
 const babel = require('gulp-babel')
 const less = require('gulp-less')
-const path = require('path')
-
-const watchify = require('watchify')//keeps gulp running, recompliles on file change
-const fancyLog = require('fancy-log')
 
 const _browserify = browserify({
     basedir: '.',
@@ -38,15 +34,6 @@ const compileLess = () => gulp
     .pipe(less())
     .pipe(gulp.dest('dist')
     )
-
-const watchTasks = () => {
-    gulp.src(paths.pages)
-        .pipe(gulp.dest('dist'))
-    compileLess()
-    compileJs()
-
-    browserSync.reload()
-}
 
 gulp.task('startServer', () => {
     browserSync.init({
