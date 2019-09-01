@@ -2,3 +2,14 @@
   color: orange;
   background-color: #0d406d;
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+}
+main {
+  background-color: #4040b3;
+  height: 100%;
+}

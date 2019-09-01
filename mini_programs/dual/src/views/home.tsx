@@ -1,7 +1,15 @@
 import { kuru } from 'kuru'
+import Profile from '../containers/ProfileContainer'
 
 export default () => (
     <main>
-        Home Screen
+        <h1>Dual</h1>
+        <section>
+            Welcome to the game of thrones!
+        </section>
+        <section>
+            Yasss
+        </section>
+        <Profile />
     </main>
 )

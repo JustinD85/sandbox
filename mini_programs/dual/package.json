@@ -20,7 +20,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-typescript": "^5.0.1",
     "gulp-uglify": "^3.0.2",
-    "kuru": "^1.0.12",
+    "kuru": "^1.0.13",
     "tsify": "^4.0.1",
     "typescript": "^3.5.3",
     "vinyl-buffer": "^1.0.1",

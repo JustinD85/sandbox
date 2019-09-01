@@ -1,15 +1,24 @@
-export default (name: string) => ({
+import { ICard } from './card'
+
+
+export interface IPerson {
+    name: string,
+    readonly record: {
+        level: number,
+        xp: number,
+        wins: number,
+        losses: number
+    },
+    readonly deck: [ICard?]
+}
+
+export default (name: IPerson['name']): IPerson => ({
     name,
     record: {
-        level: 1,
-        xp: 100,
+        level: 0,
+        xp: 0,
         wins: 0,
-        losses: 0,
+        losses: 0
     },
-    deck: {
-        'chaizard': 1,
-        'blueface': 2,
-        'monkeyhammer': 23,
-        'elitist': 1337
-    },
+    deck: []
 })

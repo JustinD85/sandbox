@@ -12,7 +12,7 @@ const less = require('gulp-less')
 const _browserify = browserify({
     basedir: '.',
     debug: true,
-    entries: ['src/main.tsx'],
+    entries: ['src/index.tsx'],
     cache: {},
     packageCache: {}
 }).plugin('tsify')
@@ -30,7 +30,7 @@ const compileJs = () => _browserify
     .pipe(gulp.dest('dist'))
 
 const compileLess = () => gulp
-    .src('src/styles/main.less')
+    .src('src/index.less')
     .pipe(less())
     .pipe(gulp.dest('dist')
     )
