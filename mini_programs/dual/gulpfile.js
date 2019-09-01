@@ -34,7 +34,7 @@ const compileJs = () => _browserify
     .pipe(gulp.dest('dist'))
 
 const compileLess = () => gulp
-    .src('src/less/main.less')
+    .src('src/styles/main.less')
     .pipe(less())
     .pipe(gulp.dest('dist')
     )
@@ -54,8 +54,8 @@ gulp.task('startServer', () => {
             baseDir: "dist"
         }
     })
-    gulp.watch('src/less/**/*.less').on('change', () => { compileLess(); browserSync.reload(); })
-    gulp.watch('src/*.tsx').on('change', () => { compileJs(); setTimeout(browserSync.reload, 0) })
+    gulp.watch('src/styles/**/*.less').on('change', () => { compileLess(); browserSync.reload(); })
+    gulp.watch(['src/*.tsx', 'src/**/*.tsx']).on('change', () => { compileJs(); setTimeout(browserSync.reload, 0) })
     gulp.watch('src/*.html').on('change', () => {
         gulp.src(paths.pages)
             .pipe(gulp.dest('dist'));
