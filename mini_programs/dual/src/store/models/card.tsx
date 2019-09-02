@@ -8,13 +8,4 @@ export interface ICard {
 }
 
 
-export default function Card({ name, cost, description, power, health, img }: ICard) {
-    return {
-        name,
-        cost,
-        description,
-        power,
-        health,
-        img
-    }
-}
+export default (card: ICard) => card
