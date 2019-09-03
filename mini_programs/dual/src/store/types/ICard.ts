@@ -1,3 +1,5 @@
+
+
 export interface ICard {
     readonly name: string,
     readonly cost: number,
@@ -6,6 +8,3 @@ export interface ICard {
     readonly health: number,
     readonly img: string
 }
-
-
-export default (card: ICard) => card

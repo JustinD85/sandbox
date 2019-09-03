@@ -1,4 +1,4 @@
-import { ICard } from './card'
+import { ICard } from './ICard'
 
 
 export interface IPerson {
@@ -9,7 +9,7 @@ export interface IPerson {
         wins: number,
         losses: number
     },
-    readonly deck: [ICard?]
+    readonly deck: ICard[]
 }
 
 export default (name: IPerson['name']): IPerson => ({

@@ -1,5 +1,5 @@
 import { kuru } from 'kuru'
-import { IPerson } from '../models/person';
+import { IPerson } from '../store/types/IPerson';
 
 export default ({ name, record, deck }: IPerson) => (
     <div className="person">
