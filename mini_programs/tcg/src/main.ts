@@ -1,6 +1,6 @@
-import * as Phase from 'phaser'
+import * as Phaser from 'phaser'
 
-const gameConfig: Phase.Types.Core.GameConfig = {
+const gameConfig: Phaser.Types.Core.GameConfig = {
     title: 'Your New TCG!',
     type: Phaser.AUTO,
 
@@ -15,7 +15,7 @@ const gameConfig: Phase.Types.Core.GameConfig = {
     },
 
     parent: 'game',
-    backgroundColor: '#000000',
+    backgroundColor: '#f00',
 };
 
 export const game = new Phaser.Game(gameConfig);
