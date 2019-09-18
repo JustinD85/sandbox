@@ -7,9 +7,6 @@ export default () => (
         <section>
             Welcome to the game of thrones!
         </section>
-        <section>
-            Yasss
-        </section>
         <Profile />
     </main>
 )
