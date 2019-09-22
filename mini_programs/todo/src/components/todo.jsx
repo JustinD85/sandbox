@@ -22,7 +22,7 @@ export default () => {
 
         if (Array.isArray(stateChange))
             (newState = stateChange) && (id = stateChange.length ? stateChange.reverse()[0].id : 0)
-        else if (!todos.find(e => parseInt(e.id) === id))
+        else if (!todos.find(todo => parseInt(todo.id) === id))
             newState = todos.reduce((acc, e) => [...acc, e], [stateChange])
         else
             newState = todos.map(todo => todo.id === id ? stateChange : todo)
@@ -37,7 +37,7 @@ export default () => {
 
     function checkboxToggler(e) {
         const id = parseInt(e.target.closest('.todo-item').id)
-        const newState = todos.reduce((acc, todo) => todo.id == id ? { ...todo, ...acc } : acc, { isChecked: e.target.checked })
+        const newState = todos.reduce((acc, todo) => todo.id === id ? { ...todo, ...acc } : acc, { isChecked: e.target.checked })
         addChangeHandler(newState)
     }
 
