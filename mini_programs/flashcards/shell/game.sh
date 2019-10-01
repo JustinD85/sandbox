@@ -1,8 +1,9 @@
 #!/bin/bash
 # flash card game
+
 G_IFS=$IFS 
 IFS="\$" #-E option on cat puts $ to indicate newline, set IFS to match
-tabs 4 #sane default for this 
+tabs 4 #sane default for this, stays for the scope of this script 
 declare -A resultset #associative array, ver ver fancy
 dataset=`cat -E data.csv` #some default data read from current dir, add $ for newline
 
@@ -12,16 +13,16 @@ take_turn(){
   category=$3
     printf "What is this in english? $question\n:> " && read user_response
   [ resultset[$category] ] || resultset[$category]=0 
-  [ ${user_response:=b} != $answer ] &&
+  [ ${user_response:=b} != $answer ] && #:= shell parameter expansion... if user_response is unset, set it to 'b'
     resultset[$category]=$(("${resultset[$category]}"+1)) &&
-    echo -e "\n\n\
-    =========================\e[0;33m\n\
-    \t\tBooBoo!\n \t\tWrong count by 1.\e[1;33m\n\
-    =========================\n\n" ||
-    echo -e "\n\n\
-    ========================\e[0;34m\n\
-    \t ***Correct***\e[1;33m\n\
-    ========================\n\n"
+    echo -e "\e[0;33m\n\n\
+    =========================\n\
+    \t\tBooBoo!\n \t\tWrong count by 1.\n\
+    =========================\n\n\e[0m" ||
+    echo -e "\e[92m\n\n\
+    ========================\n\
+    \t ***Correct***\n\
+    ========================\n\n\e[0m"
 }
 
 for line in $dataset #separator is $ still
@@ -32,20 +33,22 @@ do
   IFS=OLDIFS #returns old value to IFS
 done
 
- IFS=G_IFS #resets internal field separator value to og value
+IFS=G_IFS #resets internal field separator value to og value
 
- for key in "${!resultset[@]}"
- do 
-   max=`echo $dataset | grep -c $key`
-   wrong="${resultset[$key]}"
-   percentage=`bc -l <<< "scale=1; ($wrong/$max)*100"`
+for key in "${!resultset[@]}"
+do 
+  max=`echo $dataset | grep -c $key`
+  wrong="${resultset[$key]}"
+  percentage=`bc -l <<< "scale=1; ($wrong/$max)*100"`
 
-   echo -e "\e[1;33m\t\t\t$key Summary \n\
-     ============================\e[0;33m\n\t\
-     Correct\t:\t`bc <<< "$max-$wrong"`\n\t\
-     Incorrect\t:\t$wrong \n\e[1;33m\
-     ========Percentage==========\e[0;33m\n\t\
-     Correct\t:\t${percentage}%\n\t\
-     Incorrect\t:\t${percentage}%\n\e[1;33m\
-     ============================\n\n"
- done
+  echo -e "\e[33m\t\t\t$key Summary \n\
+    ============================\n\t\
+    Correct\t:\t`bc <<< "$max-$wrong"`\n\t\
+    Incorrect\t:\t$wrong \n\
+    ========Percentage==========\n\t\
+    Correct\t:\t${percentage}%\n\t\
+    Incorrect\t:\t${percentage}%\n\
+    ============================\n\n\e[0m"
+done
+
+exit 0
