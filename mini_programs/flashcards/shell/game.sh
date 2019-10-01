@@ -17,7 +17,7 @@ take_turn(){
     resultset[$category]=$(("${resultset[$category]}"+1)) &&
     echo -e "\e[0;33m\n\n\
     =========================\n\
-    \t\tBooBoo!\n \t\tWrong count by 1.\n\
+    \t\tBooBoo!\n \t\tAdd 1 to wrong count.\n\
     =========================\n\n\e[0m" ||
     echo -e "\e[92m\n\n\
     ========================\n\
