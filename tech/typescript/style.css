@@ -1,0 +1,50 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    background-color: lemonchiffon;
+}
+#title{
+    border: 3px solid lightslategray;
+    background-color: skyblue;
+    border-radius: 5px;
+    width:fit-content;
+    margin: 1% auto;
+    padding: 5%;
+}
+
+#cardArea{
+    background-color: skyblue;
+    border-radius: 10px;
+    border: 2px solid lightslategray;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 75vh;
+    width: 75vw;
+    margin:0 auto;
+    overflow: auto;
+}
+
+#cardArea::-webkit-scrollbar{
+    display:none;
+}
+
+.card{
+    height:200px;
+    width:150px;
+    margin:10px;
+    display: grid;
+    border-radius: 10px;
+    border: 1px solid lightslategray;
+    justify-content: center;
+    background-color:lightblue;
+}
+
+span{
+    text-align: left;
+    border:1px solid lightskyblue;
+    border-radius: 20px;
+}

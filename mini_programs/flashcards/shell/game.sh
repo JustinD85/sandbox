@@ -1,8 +1,8 @@
 #!/bin/bash
 # flash card game
-G_IFS=$IFS 
+G_IFS=$IFS
 IFS="\$" #-E option on cat puts $ to indicate newline, set IFS to match
-tabs 4 #sane default for this 
+tabs 4 #sane default for this
 declare -A resultset #associative array, ver ver fancy
 dataset=`cat -E data.csv` #some default data read from current dir, add $ for newline
 
@@ -11,7 +11,7 @@ take_turn(){
   answer=$2
   category=$3
     printf "What is this in english? $question\n:> " && read user_response
-  [ resultset[$category] ] || resultset[$category]=0 
+  [ resultset[$category] ] || resultset[$category]=0
   [ ${user_response:=b} != $answer ] &&
     resultset[$category]=$(("${resultset[$category]}"+1)) &&
     echo -e "\n\n\
