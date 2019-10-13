@@ -50,5 +50,5 @@ do
     Incorrect\t:\t${percentage}%\n\
     ============================\n\n\e[0m"
 done
-
+echo -e "\n Hope you enjoyed the Game! Report any bugs to: \e[33m madfunctionaltech@gmail.com\e[0m"
 exit 0
