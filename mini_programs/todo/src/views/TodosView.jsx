@@ -1,4 +1,4 @@
 import React from 'react'
-import Todo from '../components/todo'
+import Todo from '../components/Todo'
 
-export default () => <Todo/>
+export default () => <Todo />

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Button } from 'reactstrap'
 import SimpleForm from './SimpleForm';
+import TodoList from './TodoList';
+import TodoStats from './TodoStats';
 
 
 
@@ -47,31 +49,14 @@ export default () => {
         addChangeHandler(newState)
     }
 
-    return <main>
+    return (<main>
         <section>
             <Button active={true} onClick={showFormToggler}>Click to Add a Todo!</Button>
             {showForm && <SimpleForm uniqueId={uniqueId} todos={todos} addStateHandler={addChangeHandler} />}
         </section>
         <section>
-            <h2>Todos</h2>
-            <section>
-                <h3>Stats</h3>
-                <label>Todo Count:
-                    {todos.length}
-                </label>Todo Checked Count:
-                <label>
-                    {todos.filter(e => e.isChecked).length}
-                </label>
-            </section>
-            {todos && todos.map(todo => (
-                <div key={todo.id} id={todo.id} className="todo-item">
-                    <span>{todo.id}</span>
-                    <input type="checkbox" checked={todo.isChecked} onChange={checkboxToggler} />
-                    <div>{todo.title}</div>
-                    <div>{todo.input}</div>
-                    <Button onClick={deleteHandler}>Delete Me</Button>
-                </div>
-            ))}
+            <TodoStats todos={todos} />
+            <TodoList todos={todos} checkboxToggler={checkboxToggler} deleteHandler={deleteHandler} />
         </section>
-    </main>
+    </main>)
 }
