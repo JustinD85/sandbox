@@ -39,7 +39,8 @@ gulp.task('startServer', () => {
     browserSync.init({
         server: {
             baseDir: "dist"
-        }
+        },
+    open: false
     })
     gulp.watch('src/styles/**/*.less').on('change', () => { compileLess(); browserSync.reload(); })
     gulp.watch(['src/*.tsx', 'src/**/*.tsx']).on('change', () => { compileJs(); setTimeout(browserSync.reload, 0) })
