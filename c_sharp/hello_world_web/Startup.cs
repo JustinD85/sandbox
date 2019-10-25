@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NewtonSoft.Json;
 
 namespace hello_world_web
 {
@@ -32,7 +33,10 @@ namespace hello_world_web
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    await context.Response.WriteAsync(@"
+                        'a' : 'a',
+                        'b' : 'b'
+                    ");
                 });
             });
         }
