@@ -31,14 +31,26 @@ namespace hello_world_web
 
             app.UseEndpoints(endpoints =>
             {
+
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync(@"
-                        'a' : 'a',
-                        'b' : 'b'
-                    ");
+                    await context.Response.WriteAsync(JsonConvert.SerializeObject(new Response[] {
+                        new Response("Scavenger", "Baal"),new Response("Government", "Baal"),
+                        new Response("Scientists", "Baal"), new Response("Engineers", "Baal"),
+                        new Response("Children of Baal", "Baal")}));
                 });
             });
+        }
+    }
+
+    class Response
+    {
+        public string name;
+        public string legion;
+        public Response(string name, string legion)
+        {
+            this.name = name;
+            this.legion = legion;
         }
     }
 }
