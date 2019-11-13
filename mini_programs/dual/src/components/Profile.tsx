@@ -9,6 +9,7 @@ export default ({ name, record, deck }: IPerson) => (
                 <h2>Record</h2>
                 <div>Wins: {record.wins}</div>
                 <div>Losses: {record.losses}</div>
+
                 <div>Xp: {record.xp}</div>
                 <div>Level: {record.level}</div>
             </section>
