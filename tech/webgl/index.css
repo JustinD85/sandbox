@@ -1,0 +1,31 @@
+
+body{
+  height: -webkit-fill-available;
+  overflow:hidden;
+  transform: scale(.4) translate(-73%, -47%);
+}
+  #container {
+  margin-left:50%;
+  transform: translateX(550%);
+  position: relative;
+  height: 525px;
+  width: 525px;
+  border-radius: 50%;
+  border: 1px green solid;
+  animation: orbit 4300ms ease infinite;
+  
+}
+
+.glCanvas {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes orbit {
+  50% {
+     transform: rotate(90deg);
+  }
+}
