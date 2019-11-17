@@ -3,10 +3,10 @@
 # unity engine    #
 
 ###################
-*/unity/*/Library
-*/unity/*/Logs
-*/unity/*/obj
-*/unity/*/Packages
+**/unity/**/Library
+**/unity/**/Logs
+**/unity/**/obj
+**/unity/**/Packages
 
 *.class
 ###################
