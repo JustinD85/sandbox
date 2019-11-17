@@ -10,7 +10,6 @@ namespace counting_loops
             {
                 Console.WriteLine("Count is {0}!", i);
             }
-
         }
     }
 }

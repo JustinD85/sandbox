@@ -40,9 +40,9 @@ namespace collections
             thread2.Start();
         }
 
-        static void AddItem()
+        static void AddItem(string key, string value)
         {
-            ccConfig.TryAdd("1", "2");
+            ccConfig.TryAdd(key, value);
             WriteLine(ccConfig.Count);
         }
     }
