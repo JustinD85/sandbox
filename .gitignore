@@ -174,3 +174,5 @@ c_sharp/asynchrony/.vs/asynchrony/v16/Server/sqlite3/db.lock
 .vs/playground/v16/Browse.VC.db
 c_sharp/asynchrony/asynchrony.sln
 c_sharp/asynchrony/.vs/asynchrony/v16/Server/sqlite3/storage.ide-shm
+/languages/c_sharp/unity/NumberGuesser/.vs/NumberGuesser/v16/Server/sqlite3
+/languages/c_sharp/unity/NumberGuesser/Temp
