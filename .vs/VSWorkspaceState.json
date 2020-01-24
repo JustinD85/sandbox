@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\templates",
-    "\\templates\\dotnet_react"
+    "\\c_sharp",
+    "\\c_sharp\\asynchrony",
+    "\\c_sharp\\asynchrony\\asynchrony",
+    "\\c_sharp\\threads"
   ],
-  "SelectedNode": "\\templates\\dotnet_react\\Program.cs",
+  "SelectedNode": "\\c_sharp\\asynchrony\\asynchrony\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

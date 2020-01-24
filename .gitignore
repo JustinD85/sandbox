@@ -1,3 +1,13 @@
+###################
+
+# unity engine    #
+
+###################
+**/unity/**/Library
+**/unity/**/Logs
+**/unity/**/obj
+**/unity/**/Packages
+
 *.class
 ###################
 
@@ -154,3 +164,15 @@ _[Ss]cripts
 /c_sharp/hello_world/.vs/hello_world/v16/Server/sqlite3
 /c_sharp/survey/.vs/survey/v16/Server/sqlite3
 c_sharp/survey/.vs/survey/DesignTimeBuild/.dtbcache
+/c_sharp/unity/hello_world/HelloWorld/.vs/HelloWorld/v16/Server/sqlite3
+/c_sharp/unity/hello_world/HelloWorld/Library
+/c_sharp/unity/hello_world/HelloWorld/Temp
+c_sharp/asynchrony/.vs/asynchrony/DesignTimeBuild/.dtbcache
+c_sharp/asynchrony/.vs/asynchrony/v16/Server/sqlite3/storage.ide
+c_sharp/asynchrony/.vs/asynchrony/v16/Server/sqlite3/storage.ide-wal
+c_sharp/asynchrony/.vs/asynchrony/v16/Server/sqlite3/db.lock
+.vs/playground/v16/Browse.VC.db
+c_sharp/asynchrony/asynchrony.sln
+c_sharp/asynchrony/.vs/asynchrony/v16/Server/sqlite3/storage.ide-shm
+/languages/c_sharp/unity/NumberGuesser/.vs/NumberGuesser/v16/Server/sqlite3
+/languages/c_sharp/unity/NumberGuesser/Temp
