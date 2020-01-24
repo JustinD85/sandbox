@@ -12,7 +12,7 @@ const less = require('gulp-less')
 const _browserify = browserify({
     basedir: '.',
     debug: true,
-    entries: ['src/index.tsx'],
+    entries: ['index.tsx'],
     cache: {},
     packageCache: {}
 }).plugin('tsify')
@@ -32,10 +32,9 @@ const compileJs = () => _browserify
 const compileLess = () => gulp
     .src('src/index.less')
     .pipe(less())
-    .pipe(gulp.dest('dist')
-    )
+    .pipe(gulp.dest('dist'))
 
-gulp.task('startServer', () => {
+gulp.task('default', () => {
     browserSync.init({
         server: {
             baseDir: "dist"
@@ -49,13 +48,3 @@ gulp.task('startServer', () => {
         browserSync.reload()
     })
 })
-
-gulp.task('copy-html', () => (
-    gulp.src(paths.pages)
-        .pipe(gulp.dest('dist')))
-)
-
-gulp.task('default', gulp.series(compileJs, compileLess, gulp.parallel('copy-html', 'startServer')))
-
-// watchedBrowserify.on('update', packing)
-// watchedBrowserify.on('log', fancyLog)
