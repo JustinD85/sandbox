@@ -3,7 +3,7 @@
 	- The application I want to run
 ** Container
 	- An instance of an image
-		- (Thus, many containers can run one image)
+		- (Thus, many containers can run from one image)
 ** NGINX
 	- A simple web server
 ** Registry
