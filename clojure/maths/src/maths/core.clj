@@ -3,8 +3,12 @@
   (:require [clojure.string :as str]))
 
 ;; send to function library
-(def to-num (partial #(Integer/parseInt %)))
-(def to-str-arr (comp #(str/split (str %) #"")))
+(defn to-num [n]
+  (if-not (empty? n)
+    (Integer/parseInt n)
+    0))
+
+(def to-str-arr #(str/split (str %) #""))
 
 (defn split [number]
    (->> number to-str-arr (map to-num)))
@@ -50,5 +54,6 @@
 (defn -main
   "Just a playground to get back into clojure <3"
   [& args]
+  (print "Will tell some factors of a number")
   (print (bythree? 444)))
 
