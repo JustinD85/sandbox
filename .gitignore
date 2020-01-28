@@ -9,6 +9,15 @@
 **/unity/**/Packages
 
 *.class
+####################
+
+#     FULCRO      #
+
+###################
+**/fulcro/**/js/*
+**/fulcro/**/builds/*
+**/fulcro/**/jar-manifest/*
+**/fulcro/**/.cpcache/*
 ###################
 
 # compiled source #

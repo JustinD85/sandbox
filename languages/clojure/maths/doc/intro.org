@@ -1,0 +1,13 @@
+* Introduction to maths
+
+** Revisiting Grade School Maths
+*** Numbers and Negative Numbers
+*** Factors and Multiples
+*** Fractions
+*** Mixed Numbers
+*** Decimals
+*** Ratio and Proportions
+*** Exponents
+*** Radicals
+*** Scientific Notation
+*** TODO: Up to Linear Regression
