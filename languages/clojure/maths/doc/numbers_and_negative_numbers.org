@@ -1,0 +1,27 @@
+* Number Sets
+** Legend
+*** R : Real Numbers
+*** R-Q : Irrational Numbers
+*** Q : Rational Numbers
+*** Z : Integers
+*** W : Whole Numbers
+*** N : Natural Numbers
+
+** Definition
+*** R : Any Number
+*** R-Q: R That Is Not Q 
+*** Q : Can be written as a fraction or decimal
+*** Z : W and their complements
+*** W : N and 0 
+*** N : {1,2,3,...99,100,...n}
+
+* Identity Numbers
+** Definition
+*** Identity : Apply X to Y and the result is Y
+*** Examples
+**** 0 + 1 = 1
+**** 1 * 4 = 4
+
+* Opposite(additive inverse)
+** Definition
+*** X and Y where they are equidistant from 0

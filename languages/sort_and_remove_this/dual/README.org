@@ -1,7 +1,0 @@
-* Dual
-
-** setup
-
-- clone
-- run `gulp`
-- tbc...
