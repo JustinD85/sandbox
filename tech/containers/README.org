@@ -1,0 +1,30 @@
+* Interesting Notes
+
+
+;; add definitions for the following commands TODO
+
+
+;; kubernetes
+kubectl apply
+kubectl get
+kubectl logs
+kubectl delete
+
+;;docker
+docker swarm init
+docker service *
+docker stack deploy
+docker service 
+
+;; docker command options
+--publish hostport:dockerport  :> sends incoming traffic to docker container via ports specified
+--detach                       :> runs container in background
+
+
+;;Dockerfile
+FROM    :> attempts to grab an image from dockerhub
+WORKDIR :> specifies the workdir for all subsequent commands
+COPY    :> copy from host system to image
+RUN     :> run some command inside your image
+CMD     :> what commands to run with the result of this image 
+

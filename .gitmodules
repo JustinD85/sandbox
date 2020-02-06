@@ -1,0 +1,3 @@
+[submodule ".\\tech\\containers\\node-bulletin-board"]
+	path = .\\tech\\containers\\node-bulletin-board
+	url = https://github.com/docker-training/node-bulletin-board
