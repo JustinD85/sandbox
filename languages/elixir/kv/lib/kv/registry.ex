@@ -46,7 +46,24 @@ defmodule KV.Registry do
       {:noreply, names, refs}
     else
       {:ok, bucket} = KV.Bucket.start_link([])
-      {:noreply, Map.put(names, name, bucket)}
+      ref = Process.monitor(bucket)
+      refs = Map.put(refs, ref, name)
+      names =  Map.put(names, name, bucket)
+      {:noreply, {names, refs}}
     end
   end
+
+
+  @impl true
+  def handle_info({:DOWN, ref, :process, _pid, _reason}, {refs, names}) do
+    {name, refs} = Map.pop(refs, ref)
+    names = Map.delete(names, name)
+    {:noreply, {names, refs}}
+  end
+
+  @impl true
+  def handle_info(_msg, state) do
+    {:noreply, state}
+  end
+
 end
