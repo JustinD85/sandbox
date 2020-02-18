@@ -1,6 +1,8 @@
 defmodule KV.Registry do
   use GenServer
 
+  # Frontend, meaning the exposed API
+  # When this server started, these methods are intended to be the API
   @doc """
   Starts the registry
   """
@@ -25,7 +27,7 @@ defmodule KV.Registry do
   end
 
   ## Defining GenServer Callbacks
-  ## But the below methods are still public -- TODO look into securing these methods
+  ## Backend, meaning the non-exposed methods
 
   @impl true
   def init(:ok) do
@@ -45,10 +47,10 @@ defmodule KV.Registry do
     if Map.has_key?(names, name) do
       {:noreply, names, refs}
     else
-      {:ok, bucket} = KV.Bucket.start_link([])
-      ref = Process.monitor(bucket)
+      {:ok, pid} = DynamicSupervisor.start_child(KV.BucketSupervisor, KV.Bucket)
+      ref = Process.monitor(pid)
       refs = Map.put(refs, ref, name)
-      names =  Map.put(names, name, bucket)
+      names =  Map.put(names, name, pid)
       {:noreply, {names, refs}}
     end
   end
