@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: antiquewhite;
+        font-size: 3rem;
+        font-weight: bolder;
+      }
+    </style>
+  </head>
+
+  <body>
+    <code id="app"> </code>
+  </body>
+  <script>
+    const App = grab("#app")
+
+    //Non-Grouped Data Values
+    const DataValues = [54, 58, 69, 80, 74, 67, 58, 62]
+    //Grouped Data Values
+    const Frequencies = [27, 56, 19, 22, 18, 44]
+    const Classes = [0, 1, 2, 3, 4, 5]
+
+    // grab("#app").innerText = "stdDev^2 = Sum(x - mean)^2/N"
+    App.innerText += "Population Set\n"
+    App.innerText += String(DataValues) + "\n\n"
+    App.innerText += "average/mean: \n" + getMean(DataValues) + "\n\n"
+    App.innerText += "Deviation: \n"
+    App.innerText += getDeviation(DataValues) + "\n\n"
+    App.innerText += "Population Variance Squared: \n"
+    App.innerText += getPopulationVarianceSquared(DataValues) + "\n\n"
+    App.innerText += "Population Standard Deviation\n"
+    App.innerText += getPopulationStandardDeviation(DataValues) + "\n\n"
+    App.innerText += "Within one Deviation\n"
+    App.innerText += getValuesWithinOneStandardDeviation(DataValues) + "\n\n"
+    App.innerText += "Sample Variance \n"
+    App.innerText += getSampleVarianceSquared(DataValues) + "\n\n"
+    App.innerText += "Sample Standard Deviation \n"
+    App.innerText += getSampleStandardDeviation(DataValues) + "\n\n"
+
+    App.innerText += "/////////////////////////////////////////\n "
+    App.innerText += "/////////////////////////////////////////\n "
+    App.innerText += "/////////////////////////////////////////\n "
+    App.innerText +=
+      "Find mean of group, find group variance, find grp stdDev\n "
+    App.innerText += "GROUPED DATA\n\n "
+    App.innerText += "Frequencies:\n"
+    App.innerText += Frequencies + "\n\n"
+    App.innerText += "Classes:\n"
+    App.innerText += Classes + "\n\n"
+    App.innerText += "Class width:\n"
+    App.innerText += calcWidth(Classes) + "\n\n"
+    App.innerText += "Mean of Midpoints:\n"
+    App.innerText += getMeanOfMidpoints(Classes) + "\n\n"
+    App.innerText += "Map of (Midpoints * Frequencies):\n"
+    App.innerText +=
+      productMidPointsFrequencies(getMeanOfMidpoints(Classes), Frequencies) +
+      "\n\n"
+    App.innerText += "Sum of Frequencies:\n"
+    App.innerText += Frequencies.reduce(sum) + "\n\n"
+    App.innerText += "Sum of (Midpoints * Frequencies):\n"
+    App.innerText +=
+      productMidPointsFrequencies(
+        getMeanOfMidpoints(Classes),
+        Frequencies
+      ).reduce(sum) + "\n\n"
+    App.innerText += "Mean of grouped Data\n"
+    App.innerText += getMeanOfGroupedData(Classes, Frequencies) + "\n\n"
+    App.innerText += "Map of Deviations (Midpoint - XBar)\n"
+    App.innerText += getGroupDataDeviations(Classes, Frequencies) + "\n\n"
+    App.innerText += "Converted Value(Midpt - XBar)^2 * Frequency\n"
+    App.innerText += getGroupDataConvertedValues(Classes, Frequencies) + "\n\n"
+    App.innerText += "Sum of Converted Values\n"
+    App.innerText +=
+      getGroupDataConvertedValues(Classes, Frequencies).reduce(
+        (acc, x) => acc + x
+      ) + "\n\n"
+    App.innerText += "Population Variance\n"
+    App.innerText +=
+      getGroupDataConvertedValues(Classes, Frequencies).reduce(sum) /
+        Frequencies.reduce(sum) +
+      "\n\n"
+    App.innerText += "Sample Variance\n"
+    App.innerText +=
+      getGroupDataConvertedValues(Classes, Frequencies).reduce(sum) /
+        (Frequencies.reduce(sum) - 1) +
+      "\n\n"
+    App.innerText += "Standard Deviation(from sample)\n"
+    App.innerText +=
+      Math.sqrt(
+        getGroupDataConvertedValues(Classes, Frequencies).reduce(sum) /
+          (Frequencies.reduce(sum) - 1)
+      ) + "\n\n"
+    App.innerText += "Standard Deviation(from Population)\n"
+    App.innerText +=
+      Math.sqrt(
+        getGroupDataConvertedValues(Classes, Frequencies).reduce(sum) /
+          Frequencies.reduce(sum)
+      ) + "\n\n"
+
+    function getMean(arrayNumbers) {
+      return arrayNumbers.reduce((x, y) => x + y) / arrayNumbers.length
+    }
+    function getDeviation(arrayNumbers) {
+      const mean = getMean(arrayNumbers)
+      return arrayNumbers.map(n => n - mean)
+    }
+    function getPopulationVarianceSquared(arrayNumbers) {
+      return (
+        getDeviation(arrayNumbers)
+          .map(n => n * n)
+          .reduce((x, y) => x + y) / arrayNumbers.length
+      )
+    }
+    function getPopulationStandardDeviation(arrayNumbers) {
+      return Math.sqrt(getPopulationVarianceSquared(arrayNumbers))
+    }
+    function getValuesWithinOneStandardDeviation(arrayNumbers) {
+      const standardDeviation = getPopulationStandardDeviation(arrayNumbers)
+      const mean = getMean(arrayNumbers)
+
+      return arrayNumbers.filter(x => oneDeviation(x, mean, standardDeviation))
+      function oneDeviation(num, mean, standardDeviation) {
+        return mean - standardDeviation < num && mean + standardDeviation > num
+      }
+    }
+    function getSampleVarianceSquared(arrayNumbers) {
+      return (
+        getDeviation(arrayNumbers)
+          .map(n => n * n)
+          .reduce(sum) /
+        (arrayNumbers.length - 1)
+      ) //same as population variance other than subtracting 1
+    }
+    function getSampleStandardDeviation(arrayNumbers) {
+      return Math.sqrt(getSampleVarianceSquared(arrayNumbers))
+    }
+
+    // Grouped Data
+    function calcWidth(arrayClasses) {
+      return arrayClasses[1] - arrayClasses[0]
+    }
+    function getMeanOfMidpoints(classes) {
+      const numberInSet = 2
+      const width = calcWidth(classes)
+      const step = x => x + width
+      const midPoints = classes.map(x => (x + step(x)) / numberInSet)
+
+      return midPoints.map(x => x)
+    }
+    function productMidPointsFrequencies(midPoints, frequencies) {
+      return midPoints.map((x, i) => x * frequencies[i])
+    }
+    function getMeanOfGroupedData(arrayClasses, frequencies) {
+      const midPoints = getMeanOfMidpoints(arrayClasses)
+      const productsFreqMidPoint = productMidPointsFrequencies(
+        midPoints,
+        frequencies
+      )
+      const sumProdFreqMidPoints = productsFreqMidPoint.reduce(sum)
+
+      return sumProdFreqMidPoints / frequencies.reduce(sum)
+    }
+    function getGroupDataDeviations(Classes, Frequencies) {
+      return getMeanOfMidpoints(Classes).map(
+        (x, i) => x - getMeanOfGroupedData(Classes, Frequencies)
+      )
+    }
+    function getGroupDataConvertedValues(Classes, Frequencies) {
+      return getGroupDataDeviations(Classes, Frequencies).map(
+        (x, i) => x * x * Frequencies[i]
+      )
+    }
+    function grab(id) {
+      return document.querySelector(id)
+    }
+    function sum(x, y) {
+      return x + y
+    }
+  </script>
+</html>
