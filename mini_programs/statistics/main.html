@@ -22,8 +22,8 @@
     //Non-Grouped Data Values
     const DataValues = [54, 58, 69, 80, 74, 67, 58, 62]
     //Grouped Data Values
-    const Frequencies = [27, 56, 19, 22, 18, 44]
-    const Classes = [0, 1, 2, 3, 4, 5]
+    const Classes = [2.0, 3.0, 4.0, 5.0, 6.0]
+    const Frequencies = [6, 6, 5, 2, 1]
 
     // grab("#app").innerText = "stdDev^2 = Sum(x - mean)^2/N"
     App.innerText += "Population Set\n"
@@ -102,6 +102,21 @@
           Frequencies.reduce(sum)
       ) + "\n\n"
 
+    App.innerText += "/////////////////////////////"
+    App.innerText += "/////////////////////////////"
+    App.innerText +=
+      "Chebyshev Inequality= 1-1/K^2 ;; 75% of data w/i 2 stddev of mean\n"
+    App.innerText += "Mean of grouped Data\n"
+    App.innerText += getMeanOfGroupedData(Classes, Frequencies) + "\n\n"
+    App.innerText += "Map of Deviations (Midpoint - XBar)\n"
+    App.innerText += getGroupDataDeviations(Classes, Frequencies) + "\n\n"
+    App.innerText += "Standard Deviation(from Population)\n"
+    App.innerText +=
+      Math.sqrt(
+        getGroupDataConvertedValues(Classes, Frequencies).reduce(sum) /
+          Frequencies.reduce(sum)
+      ) + "\n\n"
+
     function getMean(arrayNumbers) {
       return arrayNumbers.reduce((x, y) => x + y) / arrayNumbers.length
     }
@@ -150,7 +165,7 @@
       const step = x => x + width
       const midPoints = classes.map(x => (x + step(x)) / numberInSet)
 
-      return midPoints.map(x => x)
+      return midPoints
     }
     function productMidPointsFrequencies(midPoints, frequencies) {
       return midPoints.map((x, i) => x * frequencies[i])
